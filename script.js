@@ -8,6 +8,7 @@ const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 const resultsDiv = document.querySelector("#results");
 const scoreDiv = document.querySelector("#score");
+const finalDiv = document.querySelector("#final");
 
 let playerSelection;
 let playerScore = 0;
@@ -66,16 +67,16 @@ function game() {
   let computerSelection = getcomputerSelectionChoice();
   const br = document.createElement("br");
 
-  resultsDiv.textContent = `Computer chose: ${computerSelection}; You chose: ${playerSelection}`;
+  resultsDiv.textContent = `Computer chose: ${computerSelection} --- You chose: ${playerSelection}`;
 
   setTimeout(() => {
     resultsDiv.textContent = playRound(computerSelection, playerSelection);
-    scoreDiv.textContent = `You: ${playerScore}   Computer: ${computerScore}`;
+    scoreDiv.textContent = `You: ${playerScore} --- Computer: ${computerScore}`;
 
     if (playerScore === 5) {
-      scoreDiv.textContent += `   YOU WIN`
+      finalDiv.textContent += `YOU WIN!`
     } else if (computerScore === 5) {
-      scoreDiv.textContent += `   YOU LOSE`
+      finalDiv.textContent += `YOU LOSE!`
     }
-  }, 2000);
+  }, 3000);
 }

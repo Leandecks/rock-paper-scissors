@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&family=Young+Serif&display=swap');
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(43, 203, 181);
+  font-family: "Young Serif", sans-serif;
+}
+
+h1 {
+  background-color: rgb(66, 60, 60);
+  color: rgb(43, 203, 181);
+  padding: 1rem;
+}
+
+p {
+  color: rgb(66, 60, 60);
+}
+
+button {
+  background-color: rgb(66, 60, 60);
+  color: rgb(43, 203, 181);
+  border: solid .2rem rgb(66, 60, 60);
+  padding: 1rem 3rem;
+  margin: .5rem;
+  font-family: "Young Serif", sans-serif;
+}
+
+button:hover {
+  background-color: rgb(43, 203, 181);
+  color: rgb(66, 60, 60);
+  border: solid .2rem rgb(66, 60, 60);
+  transition: all 300ms ease-in-out;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+#results,
+#score,
+#final {
+  color: rgb(66, 60, 60);
+  margin: 0.2rem 0;
+}
+
+#final {
+  display: inline-block;
+  padding: .4rem;
+  background-color: rgb(66, 60, 60);
+  color: rgb(43, 203, 181);
+}
