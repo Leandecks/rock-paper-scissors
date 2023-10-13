@@ -1,7 +1,35 @@
 "use strict";
 console.log("JS Started");
 
-// Get random choice of R/P/S
+// Buttons, playerSelection
+
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+const resultsDiv = document.querySelector("#results");
+const scoreDiv = document.querySelector("#score");
+
+let playerSelection;
+let playerScore = 0;
+let computerScore = 0;
+
+
+rockButton.addEventListener("click", () => {
+  playerSelection = "Rock";
+  game();
+});
+
+paperButton.addEventListener("click", () => {
+  playerSelection = "Paper";
+  game();
+});
+
+scissorsButton.addEventListener("click", () => {
+  playerSelection = "Scissors";
+  game();
+});
+
+// Get random choice of R/P/S (computerSelection)
 
 function getcomputerSelectionChoice() {
   let randomNumber = Math.random() * 2;
@@ -22,32 +50,32 @@ function playRound(computerSelection, playerSelection) {
   if (computerSelection === "Rock" && playerSelection === "Scissors" ||
   computerSelection === "Scissors" && playerSelection === "Paper" ||
   computerSelection === "Paper" && playerSelection === "Rock") {
+    ++ computerScore;
     return `You Lose! ${computerSelection} beats ${playerSelection}`;
   } else if (computerSelection === playerSelection) {
     return `You Draw! ${computerSelection} is the same as ${playerSelection}`;
   } else {
+    ++ playerScore;
     return `You Win! ${playerSelection} beats ${computerSelection}`;
   }
 }
 
-// Get user input, display game messages
+// Display game messages
 
 function game() {
-  console.log("Welcome to Rock Paper Scissors! You are playing 5 rounds against the computerSelection!")
+  let computerSelection = getcomputerSelectionChoice();
+  const br = document.createElement("br");
 
-  for (let i = 1; i <= 5; i++) {
-    console.log(`Round ${i}`);
-    let computerSelection = getcomputerSelectionChoice();
+  resultsDiv.textContent = `Computer chose: ${computerSelection}; You chose: ${playerSelection}`;
 
-    let playerInput = prompt("Rock, Paper or Scissors?");
-    let playerSelection = playerInput[0].toUpperCase() + playerInput.slice(1).toLowerCase();
+  setTimeout(() => {
+    resultsDiv.textContent = playRound(computerSelection, playerSelection);
+    scoreDiv.textContent = `You: ${playerScore}   Computer: ${computerScore}`;
 
-    console.log(`Computer chose: ${computerSelection}; You chose: ${playerSelection}`);
-
-    console.log(playRound(computerSelection, playerSelection));
-  }
+    if (playerScore === 5) {
+      scoreDiv.textContent += `   YOU WIN`
+    } else if (computerScore === 5) {
+      scoreDiv.textContent += `   YOU LOSE`
+    }
+  }, 2000);
 }
-
-// Play
-
-game();
