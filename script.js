@@ -75,8 +75,10 @@ function game() {
 
     if (playerScore === 5) {
       finalDiv.textContent += `YOU WIN!`
+      finalDiv.style.padding = ".2rem";
     } else if (computerScore === 5) {
       finalDiv.textContent += `YOU LOSE!`
+      finalDiv.style.padding = ".2rem"
     }
   }, 3000);
 }
