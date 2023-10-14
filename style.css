@@ -13,6 +13,7 @@ body {
   flex-direction: column;
   background-color: rgb(43, 203, 181);
   font-family: "Young Serif", sans-serif;
+  transition: all 300ms ease-in-out;
 }
 
 h1 {
@@ -57,4 +58,14 @@ p {
   display: inline-block;
   background-color: rgb(66, 60, 60);
   color: rgb(43, 203, 181);
+}
+
+footer a {
+  color: brown;
+  transition: all 300ms ease-in-out;
+}
+
+footer a:hover {
+  color: rgb(66, 60, 60);
+  text-decoration: none;
 }
